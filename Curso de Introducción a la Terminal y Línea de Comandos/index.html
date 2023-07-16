@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<!--
+Curso de Introducción a la Terminal y Línea de Comandos
+
+¿Que es un comando?
+un comando puede ser 4 cosas:
+1_un programa ejecutable
+2_un comando de utilidad de la shell (la shell es un programa en si, los programas pueden tener funciones, un comando puede ser una funciòn que ya viene por defecto en este programa)
+3_una funcion de shell(no vienen dentro de la shell)
+4_un alias
+
+
+
+
+
+¿que es una Wildcards?
+Las wildcards o comodines son una serie de caracteres especiales que nos permiten encontrar patrones o realizar búsquedas más avanzadas. Es aplicable para archivos y directorios.
+
+Tipos de wildcards
+Buscar todo (*)
+El asterisco te ayuda a buscar toda la información dentro de una carpeta, pero puedes limitar su uso. Si por ejemplo quieres buscar los archivos que tengan una extensión “.png”, escribes:
+
+ls -l *.png
+image.png
+
+
+También lo puedes poner al final, si quisieras buscar, todos los archivos que comiencen por unos caracteres específicos, entonces escribes esos caracteres y luego el asterisco.
+
+Por ejemplo, si quisieras buscar todos los archivos que comiencen por “fotosDe”, habría que escribir:
+
+ls -l fotoDe*
+
+image.png
+
+
+Buscar por cantidad de caracteres (?)
+Si dentro de tus archivos tuvieras una especie de código para guardar tus fotos, algo así como “foto1.png”, “foto2.png”, “foto3.png”, etc. En este caso, sabemos que primero tenemos el string “foto”, luego un solo número y por último la extensión “.png”.
+
+Si quisieras buscar esas fotos escribirías:
+
+ls -l foto?.png
+image.png
+Aquí estás indicando:
+
+Busca todo lo que comience por la cadena de caracteres “foto”
+Que inmediatamente después tenga un solo caracter
+Y que al final tenga la cadena de caracteres “.png”
+Pero si sabes que no tiene un solo caracter, sino que tiene varios, entonces escribes tantos signos de interrogación como caracteres existan. Por ejemplo, si quieres buscar las fotos que tengan esta estructura “foto11.jpg”, escribes:
+
+ls -l foto??.jpg
+image.png
+También puedes combinar wildcards. Por ejemplo, si sabes que tus fotos siguen esta especie de código, pero no sabes que extensión tienen, escribes:
+
+ls -l foto?.*
+image.png
+Aquí estás indicando:
+
+Busca todo lo que comience por “foto”
+Que inmediatamente después tenga un solo caracter
+Y que tenga lo que sea después del punto
+Buscar por caracteres específicos ([])
+Si quieres buscar por varios caracteres específicos se usan corchetes. Para utilizarlos tienes que colocar dentro de los corchetes los caracteres que quieres buscar.
+
+Por ejemplo, si quisieras buscar los archivos que comiencen por las letras “c” o “i”, entonces escribes:
+
+ls -l [ci]*
+image.png
+Lo que indica el comando es que busque los archivos que comiencen por la letra “c” o por la letra “i” y que tengan lo que sea por delante. Cuando buscamos con esta wildcard ten en cuenta que es case sensitive, por lo que la letra “i” no es lo mismo que la letra “I”.
+
+ls -l [cCiI]*
+image.png
+Por último, si quieres buscar por rango de números también tienes que usar esta wildcard. Para hacerlo, escribe el rango de números que quieres buscar separados por un guion.
+
+ls -l foto[2-6]*
+image.png
+Lo que indica ese comando es:
+
+Busca todo lo que comience por la cadena de texto “foto”
+Que justo después tenga un número entre el 2 y el 6
+Y que tenga lo que sea por delante.
+Tabla de wildcards
+Wildcard	Función
+*	Busca todo
+?	Busca por cantidad de caracteres
+[]	Busca por caracteres específicos
+Contribución creada con los aportes de: Miguel Gonzalez, Maximiliano Nahuelanca y Brayan Alexis Lechon
+
+
+
+
+comandos:
+ls
+cd
+ls -l (muestra cuando fueron creados y el peso del archivo)
+ls -lh (muestra lo mismo que ls -l pero mas detalladamente en lo que respecta al peso de los archivos)
+cd ..
+. .. ruta relativa
+/home/cursos/PLatzi ruta absoluta
+pwd (indica la ruta en la que nos encontramos)
+file + *nombre de archivo* (te indica el tipo de archivo con el que estas trabajando o quieres trabajar)
+ls -la (muestra todos los archivos, incluyendo los archivos ocultos)
+ls -lS (ordena los directorios dependiendo del tamaño)
+ls -lSh (muestra los directorios con el tamaño exacto)
+ls -lr (muestra los archivos al reves)
+tree -L 2 (desplega todo el sistema de archivos)(-L 2 para que desplegue solamente 2 niveles)
+mkdir *nombre de directorio* (crear archivos) (se pueden crear muchos con un solo comando).
+touch *nombre de archivos* (crear archivo) (se pueden crear muchos con un solo comando).
+cp *nombre de archivo* **a 
+mv nombre de archivo *ruta de archivo destino* (para mover un archivo)
+mv *nombre de archivo* *nuevo nombre de archivo* (renombrar archivos)
+rm (borra archivos)
+rmdir (borra carpetas)
+rm -i (te consulta si realmente deseas eliminar este archivo)
+rm -r (elimina carpeta con contenido)
+rm -ri
+rm -rf (elimina todo forzosamente)
+head *nombre de archivo* (muestra las primeras 10 lineas de codigo de un archivo)
+head *nombre de archivo* -n 15 (ahora muestra las primeras 15 lineas de codigo de nuestro archivo)
+tail *nombre de archivo* (muestra las ultimas 10 lineas de codigo de un archivo)
+tail *nombre de archivo* -n 15 (ahora muestra las ultimas 15 lineas de codigo)
+less (muestra todo el archivo) dentro de less / nos permite buscar palabras. salimos con la tecla q
+open *nombre del archivo* 
+ctrl + c (elimina cualquier proceso corriendo en la terminal )
+type *comando*(muestra la naturaleza de los comandos)
+alias *nombre del alias*(crea un alias que permite ponerle nombres diferentes a tus comandos
+)
+help *comando* (te muestra todas las posibilidades que tiene un comando)
+man *comando* (manual de usuario de un comando)
+whatis *comando* (descripcion muy corta de cual es la funciòn del comando)
+cat (muestra todo el contenido de un archivo)
+nano (editor de codigo que contiene la terminal para la modificación de archivos)
+ls Downloads >> misArchivos.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Si quieres que el Standard Output no vaya a la consola sino hacia un archivo, entonces puedes usar el operador > seguido del nombre del archivo en el que quieres guardar la salida.
+
+ls -l > output.txt
+
+-->
